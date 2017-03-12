@@ -2,7 +2,7 @@
 --=======================================================
 Swapper = CreateFrame("Frame", "Swapper", UIParent)
 AceEvent = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0")
-DEBUG = true
+DEBUG = false
 
 --General functions
 --=============================
