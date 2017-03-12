@@ -1,29 +1,29 @@
---Globals
+--What we'll need
 --=======================================================
-Swapper = CreateFrame("Frame", "Swapper", UIParent)
-AceEvent = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0")
-DEBUG = false
+local Swapper = CreateFrame("Frame", "Swapper", UIParent)
+local AceEvent = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0")
+local DEBUG = false
 
 --General functions
 --=============================
-function debug(msg)
+local function debug(msg)
 	if DEBUG then
 		message(msg)
 	end
 end
 
-function foldr(func, val, tbl)
+local function foldr(func, val, tbl)
     for i,v in pairs(tbl) do
         val = func(val, v)
     end
     return val
 end
 
-function andIt(x, y)
+local function andIt(x, y)
 	return (x and y)
 end
 
-function stringCat(x, y)
+local function stringCat(x, y)
 	return x .. y
 end
 
@@ -89,7 +89,7 @@ Swapper:SetScript("OnEvent", handler)
 function findFrozen()
 	for bag = 0, NUM_BAG_SLOTS do
 		for slot = 1, GetContainerNumSlots(bag) do
-			-- if the item at this container slot is locked then its our new bag
+			-- if the item at this container slot is locked then it's our new bag
 			local _, _, locked, _, _, _, link, _, _, itemID = GetContainerItemInfo(bag, slot)
 			if locked == 1 then
 				link = GetContainerItemLink(bag, slot)
